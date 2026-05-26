@@ -15,54 +15,91 @@
 <body>
 <h1>TI2 | Livre d'or</h1>
 <!-- Formulaire d'ajout d'un message -->
- <form action="" method="POST">
+
+<h2>Ici le formulaire</h2>
+<div class="wrapper">
+    <div class="form-img">
+<img src="img/img.png" alt="">
+
+ <form action="" method="POST" class="form">
     <div class="field">
-        <label for="name"></label>
+        <label for="fullname">Nom</label>
         <input type="text" id="fullname" name="fullname" placeholder="Ex:Smith">
     </div>
        <div class="field">
-        <label for="lastname"></label>
-        <input type="text" id="">
+        <label for="lastname">Prénom</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Ex:John">
     </div>
        <div class="field">
-        <label for=""></label>
-        <input type="text">
+        <label for="usermail">E-mail</label>
+        <input type="text" id="usermail" name="usermail" placeholder="john.smith@example.com">
     </div>
        <div class="field">
-        <label for=""></label>
-        <input type="text">
+        <label for="postcode">Code Postal</label>
+        <input type="text" id="postcode" name="postcode" placeholder="EX:1000">
     </div>
        <div class="field">
-        <label for=""></label>
-        <input type="text">
+        <label for="phone">Téléphone</label>
+        <input type="text" name="phone" id="phone" placeholder="Ex:04 23 45 67 89">
     </div>
-    <textarea name="" id=""></textarea>
-    <button type="submit">Envoyer le message</button>
+        <div class="field">
+    <label for="message">Message</label>
+    <textarea name="message" id="message" placeholder="Un petit mot..."></textarea>
+        </div>
+    <button type="submit" class="submit-btn ">Envoyer le message</button>
  </form>
-<h2>Ici le formulaire</h2>
+</div>
 <!-- Si pas de message -->
-<h3>Pas encore de message</h3>
+   <?php
+$nbMessages =  $messages;
+            if (empty($nbMessages)):
+              
+            ?>
+              <h3>Pas encore de message</h3>
+
 <!-- Si 1 message -->
+ <?php
+            // il y a au mois un message
+            elseif( $nbMessages == 1):
+                // preparation du pluriel si on a plus d'un message
+               
+            ?>
 <h3>Il y a 1 message</h3>
 <!-- Si plusieurs messages -->
-<h3>Il y a X messages</h3>
-
+ <?php
+            // il y a au mois un message
+            else :
+                // preparation du pluriel si on a plus d'un message
+               
+            ?>
+<h2>Il y a (<?= $nbMessages ?>) messages  (<?= $nbMessages ?>)</h2>
+        
+ 
 <!-- Pagination (BONUS) -->
 
 <!-- Liste des messages -->
+ <?php
+                    foreach ($messages as $message):
+                    ?>
 <ul>
     <li>
-        <p><strong>firstname lastname</strong></p>
-        <p><em>datemessage</em></p>
-        <p>message</p>
+        <p><strong><?= htmlspecialchars($nbMessages['firstname']) ?><?= htmlspecialchars($nbMessages['lastname']) ?></strong></p>
+        <p><em><?= htmlspecialchars($nbMessages['datemessage']) ?></em></p>
+        <p><?= htmlspecialchars($nbMessages['message']) ?></p>
     </li>
     <!-- Autres messages -->
     <li>
-        <p><strong>firstname lastname</strong></p>
-        <p><em>datemessage</em></p>
-        <p>message</p>
+        <p><strong><?= htmlspecialchars($nbMessages['firstname']) ?> <?= htmlspecialchars($nbMessages['lastname']) ?></strong></p>
+        <p><em><?= htmlspecialchars($nbMessages['datemessage']) ?></em></p>
+        <p><?= htmlspecialchars($nbMessages['message']) ?></p>
     </li>
 </ul>
+  <?php
+      endforeach;
+                endif;
+            
+                ?>
+                 </div>
 etc ...
 <!-- Pagination (BONUS) -->
 <?php

@@ -21,7 +21,21 @@ require_once URL_BASE . "/model/guestbookModel.php";
  * Activez le mode d'erreur de PDO à Exception et
  * le mode fetch à tableau associatif
  */
-
+ try {
+    $db = new PDO(
+        DB_DSN, 
+        DB_LOGIN, 
+        DB_PWD, 
+    );
+}catch(Exception $e){
+    // arrêt et affichage de l'erreur (en dev)
+    die($e->getMessage());
+}
+if(isset($_POST['firstname'],$_POST['lastname'],$_POST['usermail'],$_POST['phone'],$_POST['postcode'],$_POST['message'])){
+    // envoi de nos variables nécessaires à l'insertion
+    $addGuestbook = addGuestbook($db,$_POST['firstname'],$_POST['lastname'],$_POST['usermail'],$_POST['phone'],$_POST['postcode'],$_POST['message']);
+}
+$messages=getAllGuestbook($db);
 /*
  * Si le formulaire a été soumis
  */
@@ -57,9 +71,13 @@ require_once URL_BASE . "/model/guestbookModel.php";
 /**************************
  * Fin du Bonus Pagination
  **************************/
-require_once "../config.php";
+
 // Appel de la vue
 
 include URL_BASE . "/view/guestbookView.php";
 
 // fermeture de la connexion (bonne pratique)
+
+
+// bonne pratique, fermeture de connexion
+$db=null;
