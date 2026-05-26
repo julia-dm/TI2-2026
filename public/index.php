@@ -35,7 +35,8 @@ if(isset($_POST['firstname'],$_POST['lastname'],$_POST['usermail'],$_POST['phone
     // envoi de nos variables nécessaires à l'insertion
     $addGuestbook = addGuestbook($db,$_POST['firstname'],$_POST['lastname'],$_POST['usermail'],$_POST['phone'],$_POST['postcode'],$_POST['message']);
 }
-$messages=getAllGuestbook($db);
+ $messages=getAllGuestbook($db);
+$countMessages=getNbTotalGuestbook($db);
 /*
  * Si le formulaire a été soumis
  */
@@ -58,6 +59,7 @@ $messages=getAllGuestbook($db);
  * Ou Bonus Pagination
  *********************/
 
+ //$pagination = pagination($countMessages,'?p=comments',PAGINATION_GET,PAGINATION_NB);   
 // on vérifie sur quelle page on est (et que c'est un string qui contient que des numériques sans "." ni "-" => ctype_digit) en utilisant la variable $_GET et les constantes de config.php
 
 # on compte le nombre total de messages (SQL)

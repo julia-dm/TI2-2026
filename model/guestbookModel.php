@@ -54,7 +54,7 @@ function addGuestbook(PDO $db,
 
     $prepare = $db->prepare("
     INSERT INTO `guestbook`(`firstname`,`lastname`,`usermail`,`phone`,`postcode`,`message`)
-    VALUES(:firstname,:lastname,:usermail,:phone,:postcode?:message); 
+    VALUES(:firstname,:lastname,:usermail,:phone,:postcode,:message); 
     ");
     # on met nos val dans 
     $prepare->bindValue(':usermail',$usermail);
@@ -109,10 +109,8 @@ $stmt->closeCursor();
  * Fonction qui compte le nombre total de messages dans la table 'guestbook'
  */
 function getNbTotalGuestbook(PDO $db): int
-{
-        $stmt = $db->query("SELECT COUNT(*) AS count FROM `guestbook`");
-        return (int) $stmt->fetchColumn();
-
+{       $stmt = $db->query("SELECT COUNT(*) AS count FROM `guestbook`");
+        return (int) $stmt->fetch()['count'];
 }
 //$countComments = getNbTotalGuestbook($db);
 

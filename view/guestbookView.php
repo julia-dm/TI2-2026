@@ -18,7 +18,7 @@
         <div> <h1>Livre d'or</h1> <br>
        <p> Laisser une trece de votre passage!</p></div>
        
-        <button class="change_theme">Click</button>
+        <button class="change_theme">☀️ Mode clair </button>
     </nav>
 
 <!-- Formulaire d'ajout d'un message -->
@@ -29,8 +29,8 @@
 
  <form action="" method="POST" class="form">
     <div class="field">
-        <label for="fullname">Nom</label>
-        <input type="text" id="fullname" name="fullname" placeholder="Ex:Smith">
+        <label for="firstname">Nom</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Ex:Smith" >
     </div>
        <div class="field">
         <label for="lastname">Prénom</label>
@@ -42,22 +42,23 @@
     </div>
        <div class="field">
         <label for="postcode">Code Postal</label>
-        <input type="text" id="postcode" name="postcode" placeholder="EX:1000">
+        <input type="text" id="postcode" name="postcode" placeholder="EX:1000" >
     </div>
        <div class="field">
         <label for="phone">Téléphone</label>
-        <input type="text" name="phone" id="phone" placeholder="Ex:04 23 45 67 89">
+        <input type="text" name="phone" id="phone" placeholder="Ex:04 23 45 67 89" >
     </div>
         <div class="field">
     <label for="message">Message</label>
-    <textarea name="message" id="message" placeholder="Un petit mot..."></textarea>
+    <textarea name="message" id="message" placeholder="Un petit mot..." ></textarea>
         </div>
     <button type="submit" class="submit-btn ">Envoyer le message</button>
  </form>
 </div>
 <!-- Si pas de message -->
+ <div class="messages">
    <?php
-$nbMessages =  $messages;
+$nbMessages =  $countMessages;
             if (empty($nbMessages)):
               
             ?>
@@ -68,7 +69,6 @@ $nbMessages =  $messages;
             // il y a au mois un message
             elseif( $nbMessages == 1):
                
-               
             ?>
 <h3>Il y a 1 message</h3>
 <!-- Si plusieurs messages -->
@@ -76,48 +76,38 @@ $nbMessages =  $messages;
             // il y a au mois un message
             else :
                 // preparation du pluriel si on a plus d'un message
-               
+                 //echo $pagination; 
             ?>
-<h2>Il y a (<?= $nbMessages ?>) messages  (<?= $nbMessages ?>)</h2>
+<h2>Il y a (<?= $nbMessages ?>) messages </h2>
         
  
 <!-- Pagination (BONUS) -->
 
 <!-- Liste des messages -->
- <?php
+ <div class="messages">
+                         <?php
                     foreach ($messages as $message):
                     ?>
-<ul>
-    <li>
-        <p><strong><?= htmlspecialchars($nbMessages['firstname']) ?><?= htmlspecialchars($nbMessages['lastname']) ?></strong></p>
-        <p><em><?= htmlspecialchars($nbMessages['datemessage']) ?></em></p>
-        <p><?= htmlspecialchars($nbMessages['message']) ?></p>
+<ul class="comment_body">
+    <li class="comment_meta">
+        <p><strong><?= htmlspecialchars($message['firstname']) ?> <?= htmlspecialchars($message['lastname']) ?></strong></p>
+        <p><em><?= htmlspecialchars($message['usermail']) ?></em></p>
+        <p><?= htmlspecialchars( $message['datemessage']) ?></p>
     </li>
-    <!-- Autres messages -->
-    <li>
-        <p><strong><?= htmlspecialchars($nbMessages['firstname']) ?> <?= htmlspecialchars($nbMessages['lastname']) ?></strong></p>
-        <p><em><?= htmlspecialchars($nbMessages['datemessage']) ?></em></p>
-        <p><?= htmlspecialchars($nbMessages['message']) ?></p>
-    </li>
+<p><?= htmlspecialchars($message['message']) ?></p>
+
 </ul>
-  <?php
-      endforeach;
-                endif;
-            
-                ?>
+    <?php 
+     endforeach;
+ ?>
+ </div>
+          <?php 
+     endif;
+ ?>
                  </div>
-etc ...
-<!-- Pagination (BONUS) -->
-<?php
-// À commenter quand on a fini de tester
-echo "<h3>Nos var_dump() pour le débugage</h3>";
-echo '<p>$_POST</p>';
-var_dump($_POST);
-echo '<p>$_GET</p>';
-var_dump($_GET);
-?>
+
+<img src="" alt="">
 
 <script src="js/validation.js"></script>
 </body>
 </html>
-

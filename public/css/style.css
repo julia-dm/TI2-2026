@@ -4,6 +4,12 @@ body{
     margin: 0;
     display: grid;
     place-items: center;
+    background: radial-gradient(circle at top,#c478f7,#8ae4ff);
+
+
+}
+body.dark{
+    background: black;
 
 
 }
@@ -36,9 +42,10 @@ h1{
     display: grid;
     grid-template-rows: repeat(2,1fr);
     grid-template-columns: repeat(2,1fr);
-    place-items: center;
+    place-items: start;
     min-height: 100%;
     width: 1020px;
+    grid-gap: 50px;
 }
 .form-img{
      display: grid;
@@ -46,7 +53,7 @@ h1{
 }
 .form {
     margin: 0 auto;
-    background: var(--card-bg);
+    background: white;
     width: 350px;
     padding: 20px;
     border-radius: 12px;
@@ -90,5 +97,34 @@ textarea {
 }
 
 .submit-btn:hover {
-    background-color: var(--btn_color_hover);
+    background-color: violet;
+}
+
+.comment_body{
+     display: flex;      
+    flex-direction: column;
+    text-align: center;
+    flex: 1;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    padding: 10px;
+    border-radius: 10px;
+        width: 600px;
+}
+.comment_body p{
+   padding: 10px;
+   margin: 0;
+}
+.comment_meta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    margin-bottom: 6px;
+    list-style: none;
+    border-bottom: 1px solid black;
 }

@@ -106,6 +106,8 @@
    - Faire le toggle de cette classe en jQuery avec .toggleClass().
    - Mettre à jour le texte du bouton après chaque toggle.
 
+
+
    ============================================================================
    PARTIE 5 — BONUS
    ============================================================================
@@ -141,3 +143,11 @@
    Bon travail !
    ========================================================================= */
 
+
+const btn_theme=document.querySelector(".change_theme")
+btn_theme.addEventListener("click",function(){
+  document.body.classList.toggle("dark")
+  btn_theme.textContent="🌙 Mode sombre";
+  console.log("hello");
+  
+})
