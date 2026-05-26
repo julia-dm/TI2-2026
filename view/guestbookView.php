@@ -15,6 +15,30 @@
 <body>
 <h1>TI2 | Livre d'or</h1>
 <!-- Formulaire d'ajout d'un message -->
+ <form action="" method="POST">
+    <div class="field">
+        <label for="name"></label>
+        <input type="text" id="fullname" name="fullname" placeholder="Ex:Smith">
+    </div>
+       <div class="field">
+        <label for="lastname"></label>
+        <input type="text" id="">
+    </div>
+       <div class="field">
+        <label for=""></label>
+        <input type="text">
+    </div>
+       <div class="field">
+        <label for=""></label>
+        <input type="text">
+    </div>
+       <div class="field">
+        <label for=""></label>
+        <input type="text">
+    </div>
+    <textarea name="" id=""></textarea>
+    <button type="submit">Envoyer le message</button>
+ </form>
 <h2>Ici le formulaire</h2>
 <!-- Si pas de message -->
 <h3>Pas encore de message</h3>

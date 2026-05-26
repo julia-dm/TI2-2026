@@ -57,7 +57,7 @@ require_once URL_BASE . "/model/guestbookModel.php";
 /**************************
  * Fin du Bonus Pagination
  **************************/
-
+require_once "../config.php";
 // Appel de la vue
 
 include URL_BASE . "/view/guestbookView.php";

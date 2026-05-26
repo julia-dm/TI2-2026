@@ -30,11 +30,45 @@ function addGuestbook(PDO $db,
 ): bool
 {
     // traitement des données backend (SECURITE)
+    $usermail=filter_var($usermail,FILTER_VALIDATE_EMAIL);
+    $lastname=htmlspecialchars(trim(strip_tags($lastname)));
+    $firstname = htmlspecialchars(trim(strip_tags($firstname)));
+    $phone=htmlspecialchars(trim(strip_tags($phone)));
+    $postcode = htmlspecialchars(trim(strip_tags($postcode)));
+    $message = htmlspecialchars(trim(strip_tags($message)));
 
     // si pas de données complètes ou ne correspondant pas à nos attentes, on renvoie false
-    return false;
+      if($usermail===false             ||
+    strlen($usermail)>200            ||
+    empty($firstname)            ||       
+    strlen($firstname)>100        ||
+    empty($lastname)                 ||           
+    strlen($lastname)>100           ||
+    empty($phone)          ||
+    strlen($phone)>20  ||
+     empty($postcode)            ||
+    strlen($postcode)<4         ||
+     strlen($postcode)>4         ||
+     empty($message)            ||     
+    strlen($message)>500        
+    ) return false;
     // requête préparée obligatoire !
 
+    $prepare = $db->prepare("
+    INSERT INTO `guestbook`(`usermail`,`message`,`lastname`,`phone`,`postcode`,`firstname`)
+    VALUES(:email,:text_comment,:full_name,:title); 
+    ");
+    # on met nos val dans 
+    $prepare->bindValue(':usermail',$usermail);
+    $prepare->bindValue(':message',$message);
+    $prepare->bindValue(':lastname',$lastname);
+    $prepare->bindValue(':firstname',$firstname);
+    $prepare->bindValue(':phone',$phone);
+    $prepare->bindValue(':postcode',$postcode);
+
+    # on exécute la requete
+   $retour=$prepare->execute();
+   return $retour; 
     // si l'insertion a réussi
     // on renvoie true
     // sinon, on renvoie false
