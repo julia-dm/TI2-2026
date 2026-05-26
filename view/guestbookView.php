@@ -13,13 +13,19 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>TI2 | Livre d'or</h1>
+    <nav class="nav">
+        <img src="img/logoCF2M.png" alt="logo" width="100" height="100">
+        <div> <h1>Livre d'or</h1> <br>
+       <p> Laisser une trece de votre passage!</p></div>
+       
+        <button class="change_theme">Click</button>
+    </nav>
+
 <!-- Formulaire d'ajout d'un message -->
 
-<h2>Ici le formulaire</h2>
 <div class="wrapper">
     <div class="form-img">
-<img src="img/img.png" alt="">
+<img src="img/img.png" alt="computer">
 
  <form action="" method="POST" class="form">
     <div class="field">
@@ -61,7 +67,7 @@ $nbMessages =  $messages;
  <?php
             // il y a au mois un message
             elseif( $nbMessages == 1):
-                // preparation du pluriel si on a plus d'un message
+               
                
             ?>
 <h3>Il y a 1 message</h3>
