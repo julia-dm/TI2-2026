@@ -140,7 +140,7 @@ function getGuestbookPagination(PDO $db, int $pageActu=1, int $limit=5): array
     $stmt->execute();
     $return = $stmt->fetchAll();
     $stmt->closeCursor();
-    return [$return];
+    return $return;
 }
 
 # Pour afficher la pagination dans la vue

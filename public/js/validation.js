@@ -142,18 +142,102 @@
 
    Bon travail !
    ========================================================================= */
-
-
+//btn change theme
 const btn_theme=document.querySelector(".change_theme")
+
+// div of form
+const f_firstname=document.getElementById("f-firstname")
+const f_lastname=document.getElementById("f-lastname")
+const f_email=document.getElementById("f-email")
+const f_phone=document.getElementById("f-phone")
+const f_postcode=document.getElementById("f-postcode")
+const f_message=document.getElementById("f-message")
+// inputs 
+const firstname=document.getElementById("firstname")
+const lastname=document.getElementById("lastname")
+const email=document.getElementById("usermail")
+const phone=document.getElementById("phone")
+const postcode=document.getElementById("postcode")
+const message=document.getElementById("message")
+
+
+//message 
+const msg=document.getElementById("msg")
+
+// REGEX
+const REGEX={
+  regexusername:/^.{2,}$/,
+  regexlastname:/^.{2,}$/,
+  regexemail:/^[a-zA-Z]+\.[a-zA-Z]+\@[a-zA-Z]+\.[a-zA-Z{2,}]+$/,
+  regexpostcode:/^\d{4}$/,
+  // regexphone:/^(\+32|0032|0)4\{8}$/,
+  // regexphone: /^\+324(\d{4}){4}$/,
+  regexmessage:/^.{10,}$/,
+}
+// message length span
+const messLen=document.getElementById("messLen")
+
 btn_theme.addEventListener("click",function(){
   document.body.classList.toggle("dark")
   // btn_theme.textContent="🌙 Mode sombre";
   if(document.body.classList.contains("dark")){
-    btn_theme.textContent="☀️ White Mode";
+    btn_theme.textContent="☀️ Mode clair";
   }
   else{
     btn_theme.textContent="🌙 Mode sombre";
   }
-
   
+})
+// validation of firstname
+firstname.addEventListener("keyup",function(){
+  isValid=REGEX.regexusername.test(this.value)
+  f_firstname.classList.toggle("ok",isValid)
+  f_firstname.classList.toggle("error",!isValid)
+})
+
+
+// validation of lastname
+lastname.addEventListener("keyup",function(){
+  isValid=REGEX.regexlastname.test(this.value)
+  f_lastname.classList.toggle("ok",isValid)
+  f_lastname.classList.toggle("error",!isValid)
+})
+
+// validation of email
+email.addEventListener("keyup",function(){
+  isValid=REGEX.regexemail.test(this.value)
+  f_email.classList.toggle("ok",isValid)
+  f_email.classList.toggle("error",!isValid)
+})
+
+// validation of phone
+// phone.addEventListener("keyup",function(){
+//   isValid=REGEX.regexphone.test(phone.value)
+//   f_phone.classList.toggle("ok",isValid)
+//   f_phone.classList.toggle("error",!isValid)
+// })
+
+// validation of postcode
+postcode.addEventListener("keyup",function(){
+  isValid=REGEX.regexpostcode.test(this.value)
+  f_postcode.classList.toggle("ok",isValid)
+  f_postcode.classList.toggle("error",!isValid)
+})
+
+// validation of message
+message.addEventListener("keyup",function(){
+  isValid=REGEX.regexmessage.test(this.value)
+  f_message.classList.toggle("ok",isValid)
+  f_message.classList.toggle("error",!isValid)
+})
+
+// 0/300 
+message.addEventListener("keyup",function(){
+  const len=this.value.length;
+messLen.innerHTML=len;
+if(len>280){
+  messLen.style.color="red";
+}else{
+  messLen.style.color="black";
+}
 })
