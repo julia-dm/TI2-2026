@@ -147,7 +147,13 @@
 const btn_theme=document.querySelector(".change_theme")
 btn_theme.addEventListener("click",function(){
   document.body.classList.toggle("dark")
-  btn_theme.textContent="🌙 Mode sombre";
-  console.log("hello");
+  // btn_theme.textContent="🌙 Mode sombre";
+  if(document.body.classList.contains("dark")){
+    btn_theme.textContent="☀️ White Mode";
+  }
+  else{
+    btn_theme.textContent="🌙 Mode sombre";
+  }
+
   
 })

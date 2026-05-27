@@ -18,7 +18,7 @@
         <div> <h1>Livre d'or</h1> <br>
        <p> Laisser une trece de votre passage!</p></div>
        
-        <button class="change_theme">☀️ Mode clair </button>
+        <button class="change_theme" id="change_theme">🌙 Dark Mode</button>
     </nav>
 
 <!-- Formulaire d'ajout d'un message -->
@@ -109,5 +109,6 @@ $nbMessages =  $countMessages;
 <img src="" alt="">
 
 <script src="js/validation.js"></script>
+
 </body>
 </html>
