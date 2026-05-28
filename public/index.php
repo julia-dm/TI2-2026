@@ -26,7 +26,12 @@ require_once URL_BASE . "/model/guestbookModel.php";
         DB_DSN, 
         DB_LOGIN, 
         DB_PWD, 
+         options:[
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            ]
     );
+     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
 }catch(Exception $e){
     // arrêt et affichage de l'erreur (en dev)
     die($e->getMessage());
@@ -35,8 +40,9 @@ if(isset($_POST['firstname'],$_POST['lastname'],$_POST['usermail'],$_POST['phone
     // envoi de nos variables nécessaires à l'insertion
     $addGuestbook = addGuestbook($db,$_POST['firstname'],$_POST['lastname'],$_POST['usermail'],$_POST['phone'],$_POST['postcode'],$_POST['message']);
 }
- $messages=getAllGuestbook($db);
+ //$messages=getAllGuestbook($db);
 $countMessages=getNbTotalGuestbook($db);
+
 /*
  * Si le formulaire a été soumis
  */
@@ -58,9 +64,15 @@ $countMessages=getNbTotalGuestbook($db);
 /*********************
  * Ou Bonus Pagination
  *********************/
+ if(isset($_GET[PAGINATION_GET])){
+        $page = (int) $_GET[PAGINATION_GET];
+    }else{
+        $page = 1;
+    }
+ $messages=getGuestbookPagination($db,$page,PAGINATION_NB);
+ $pagination = pagination($countMessages,'./?',PAGINATION_GET,$page,PAGINATION_NB);   
 
- //$pagination = pagination($countMessages,'?p=comments',PAGINATION_GET,PAGINATION_NB);   
-// on vérifie sur quelle page on est (et que c'est un string qui contient que des numériques sans "." ni "-" => ctype_digit) en utilisant la variable $_GET et les constantes de config.php
+ // on vérifie sur quelle page on est (et que c'est un string qui contient que des numériques sans "." ni "-" => ctype_digit) en utilisant la variable $_GET et les constantes de config.php
 
 # on compte le nombre total de messages (SQL)
 

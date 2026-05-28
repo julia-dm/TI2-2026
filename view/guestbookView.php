@@ -43,7 +43,7 @@
        <div class="field" id="f-email">
         <label for="usermail">E-mail</label>
         <input type="text" id="usermail" name="usermail" placeholder="john.smith@example.com">
-     <div id="msg">Respecter le format d'une adresse email</div>
+     <div id="msg">Respecter le format prenom.nom@mail.com</div>
     </div>
        <div class="field" id="f-postcode">
         <label for="postcode">Code Postal</label>
@@ -88,7 +88,7 @@ $nbMessages =  $countMessages;
     <li class="comment_meta">
         <p><strong><?= htmlspecialchars($message['firstname']) ?> <?= htmlspecialchars($message['lastname']) ?></strong></p>
         <p><em><?= htmlspecialchars($message['usermail']) ?></em></p>
-        <p><?= htmlspecialchars( $message['datemessage']) ?></p>
+        <p><?= htmlspecialchars( $message['datemessage'])?></p>
     </li>
 <p><?= htmlspecialchars($message['message']) ?></p>
 
@@ -100,8 +100,8 @@ $nbMessages =  $countMessages;
  <?php
  else :
   ?>
-<h2 style="border-bottom:2px solid black">Messages récents - Il y a actuellement (<?= $nbMessages ?>) messages </h2>
-        
+<h2 style="border-bottom:2px solid black; text-align:center;">Messages récents - Il y a actuellement (<?= $nbMessages ?>) messages </h2>
+        <?php  echo $pagination;  ?>
  
 <!-- Pagination (BONUS) -->
 
@@ -116,7 +116,7 @@ $nbMessages =  $countMessages;
         <p><em><?= htmlspecialchars($message['usermail']) ?></em></p>
         <p><?= htmlspecialchars( $message['datemessage']) ?></p>
     </li>
-<p><?= htmlspecialchars($message['message']) ?></p>
+<p><?=htmlspecialchars($message['message']) ?></p>
 
 </ul>
     <?php 

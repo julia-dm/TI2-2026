@@ -39,15 +39,15 @@ function addGuestbook(PDO $db,
 
     // si pas de données complètes ou ne correspondant pas à nos attentes, on renvoie false
       if($usermail===false             ||
-    strlen($usermail)>200            ||
-    empty($firstname)            ||       
-    strlen($firstname)>100        ||
-    empty($lastname)                 ||           
-    strlen($lastname)>100           ||
-    empty($phone)          ||
-    strlen($phone)>20  ||
-    strlen($postcode) !==4         ||
-     empty($message)            ||     
+    strlen($usermail)>200              ||
+    empty($firstname)                  ||       
+    strlen($firstname)>100             ||
+    empty($lastname)                   ||           
+    strlen($lastname)>100              ||
+    empty($phone)                      ||
+    strlen($phone)>20                  ||
+    strlen($postcode) !==4             ||
+     empty($message)                   ||     
     strlen($message)>500        
     ) return false;
     // requête préparée obligatoire !
@@ -91,10 +91,10 @@ function getAllGuestbook(PDO $db): array
 // un tableau avec les results
 $result= $stmt-> fetchAll(PDO::FETCH_ASSOC);
 
-// Bonne pratique 
+// Bonne pratique      
 $stmt->closeCursor();
 // retour du tableau
- return $result;
+ return [$result];
 }
 
 
@@ -189,5 +189,4 @@ function pagination(int $nbtotalMessage, string $url="./?", string $get="page", 
     return $sortie;
 
 }
- $db=null;
-    // renvoyer le tableau de(s) message(s)
+

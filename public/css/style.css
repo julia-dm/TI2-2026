@@ -55,8 +55,8 @@ h1{
     border-radius: 5px;
    display: inline-block;
    padding: 10px;
-   transition: all 0.3s ease
-
+   transition: all 0.3s ease;
+    width: 140px;
 }
 .change_theme:hover{
      background-color: rgba(73, 57, 92, 0.692); 
@@ -69,6 +69,7 @@ h1{
     min-height: 100vh;
     width: 1020px;
     grid-gap: 50px;
+    margin: 0 10px;
 }
 .form-img{
      display: grid;
@@ -135,7 +136,7 @@ textarea {
     padding-left: 0;
     padding: 10px;
     border-radius: 10px;
-    width: 600px;
+    /* width: 600px; */
      color: black;
 }
 .comment_body p{
@@ -183,23 +184,26 @@ textarea {
 
 
 @media screen and (min-width:480px) and (max-width:960px) {
-   .wrapper{
+.wrapper{
     display: grid;
     grid-template-rows: repeat(2,1fr);
     grid-template-columns: 1fr;
-    place-content: start;
-    min-height: 100vh;
-    grid-gap: 10px;
     place-items: center;
+    min-height: 100vh;
+    width: 900px;
+    grid-gap: 50px;
+
+ 
 }
 .nav{
     width: 70%;
 }
 .form {
     
-    max-width: 900px;
-    min-width: 400px;
-
+    /* max-width: 900px;
+    min-width: 400px; */
+width: 90%;
+max-width: 900px;
 
 }}
 

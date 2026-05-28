@@ -168,10 +168,11 @@ const msg=document.getElementById("msg")
 const REGEX={
   regexusername:/^.{2,}$/,
   regexlastname:/^.{2,}$/,
+  // regexemail:/^[a-zA-Z]+\.[a-zA-Z]+\@[a-zA-Z0-9]+\.[a-zA-Z{2,}]+$/,
   regexemail:/^[a-zA-Z]+\.[a-zA-Z]+\@[a-zA-Z]+\.[a-zA-Z{2,}]+$/,
   regexpostcode:/^\d{4}$/,
-  // regexphone:/^(\+32|0032|0)4\{8}$/,
-  // regexphone: /^\+324(\d{4}){4}$/,
+   regexphone:/^(\+32|0032|0)4\d{8}$/,
+  //  regexphone:/^(\+32|0032|0)4{8}$/,
   regexmessage:/^.{10,}$/,
 }
 // message length span
@@ -210,12 +211,12 @@ email.addEventListener("keyup",function(){
   f_email.classList.toggle("error",!isValid)
 })
 
-// validation of phone
-// phone.addEventListener("keyup",function(){
-//   isValid=REGEX.regexphone.test(phone.value)
-//   f_phone.classList.toggle("ok",isValid)
-//   f_phone.classList.toggle("error",!isValid)
-// })
+//validation of phone
+phone.addEventListener("keyup",function(){
+  isValid=REGEX.regexphone.test(phone.value)
+  f_phone.classList.toggle("ok",isValid)
+  f_phone.classList.toggle("error",!isValid)
+})
 
 // validation of postcode
 postcode.addEventListener("keyup",function(){
