@@ -14,8 +14,7 @@
 </head>
 <body>
     <nav class="nav">
-        <!-- <img src="img/logoCF2M.png" alt="logo" width="100" height="100"> -->
-         <span class="logo">Fm</span>
+        <img src="img/logo.png" alt="">
         <div class="header-title"> <h1>Livre d'or</h1> 
        <p> Laisser une trace de votre passage!</p></div>
        
@@ -27,7 +26,8 @@
 <div class="wrapper">
     <div class="bla">
     <div class="form-img">
-<img src="img/img.png" alt="computer">
+<!-- <img src="img/img.png" alt="computer"> -->
+
 </div>
  <form action="" method="POST" class="form" id="form">
        <div id="submit_message"></div>

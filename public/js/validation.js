@@ -192,10 +192,10 @@ btn_theme.addEventListener("click",function(){
   // btn_theme.textContent="🌙 Mode sombre";
   
   if(document.body.classList.contains("dark")){
-    btn_theme.textContent="☀️ Mode clair";
+    btn_theme.textContent="☀️Mode clair";
   }
   else{
-    btn_theme.textContent="🌙 Mode sombre";
+    btn_theme.textContent="🌙Mode sombre";
   }
   
 })
@@ -276,12 +276,12 @@ form.addEventListener("submit", function(e) {
   e.preventDefault(); 
 
   if (!isChecked.checked) {
-      submit_message.innerHTML = '<p class="error_message">Svp cochez la case </p>';
+      submit_message.innerHTML = '<p class="error_message">Veuillez remplir la case svp </p>';
       label.style.color = "red"; 
       return; 
   }
   else{
-    submit_message.innerHTML='<p class="ok_message" >Message a été envoyé</p>'
+    submit_message.innerHTML='<p class="ok_message">Message a été envoyé</p>'
   
      }
   label.style.color = ""; 
