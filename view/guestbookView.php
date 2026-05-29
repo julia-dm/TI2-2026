@@ -30,7 +30,7 @@
 <img src="img/img.png" alt="computer">
 </div>
  <form action="" method="POST" class="form" id="form">
-    <div id="submit_message"></div>
+       <div id="submit_message"></div>
     <div class="field" id="f-firstname">
         <label for="firstname">Nom</label>
         <input type="text" id="firstname" name="firstname" placeholder="Ex:Smith" required>
@@ -68,6 +68,7 @@
     <div>
     <input type="checkbox" id="ch_box">
     <label for="ch_box">J'accepte le storage de mes dobbées personnelles</label>
+ 
     </div>
      <p style="color:black;"><span id="messLen">0</span>/300</p>
 </div>  -->

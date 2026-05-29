@@ -164,7 +164,6 @@ const message=document.getElementById("message")
 const form=document.getElementById("form")
 // chechbox  input
 const isChecked=document.getElementById("ch_box"); 
-console.log(isChecked)
 // onSubmit message
 const submit_message=document.getElementById("submit_message")
 
@@ -251,15 +250,22 @@ if(len>280){
   messLen.style.color="black";
 }
 })
+// let checked=false
+// isChecked.addEventListener("click",function(){
+// checked=true
 
+// })
 
-// form.addEventListener("submit",function(e){
 // submit_message.innerHTML="";
-// if(isChecked.checked){
-// submit_message.innerHTML+='<p class="ok_message" >Message a été envoyé</p>'
+// form.addEventListener("submit",function(e){
+//   e.preventDefault()
+// if(!checked){
+//   isChecked.style.css="display:none"
+//   submit_message.innerHTML+='<p class="error_message">Svp cochez la case</p>'
+// return;
 // }
 // else{
-// submit_message.innerHTML+='<p class="error_message">Svp cochez la case</p>'
+// submit_message.innerHTML+='<p class="ok_message" >Message a été envoyé</p>'
 // }
 // })
 
