@@ -144,7 +144,8 @@
    ========================================================================= */
 //btn change theme
 const btn_theme=document.querySelector(".change_theme")
-
+// nav 
+const nav=document.querySelector(".nav")
 // div of form
 const f_firstname=document.getElementById("f-firstname")
 const f_lastname=document.getElementById("f-lastname")
@@ -169,6 +170,8 @@ const submit_message=document.getElementById("submit_message")
 
 //message 
 const msg=document.getElementById("msg")
+// label
+const label = document.getElementById("ch_label");
 
 // REGEX
 const REGEX={
@@ -187,6 +190,7 @@ const messLen=document.getElementById("messLen")
 btn_theme.addEventListener("click",function(){
   document.body.classList.toggle("dark")
   // btn_theme.textContent="🌙 Mode sombre";
+  
   if(document.body.classList.contains("dark")){
     btn_theme.textContent="☀️ Mode clair";
   }
@@ -260,12 +264,26 @@ if(len>280){
 // form.addEventListener("submit",function(e){
 //   e.preventDefault()
 // if(!checked){
-//   isChecked.style.css="display:none"
-//   submit_message.innerHTML+='<p class="error_message">Svp cochez la case</p>'
+//   submit_message.innerHTML='<p class="error_message">Svp cochez la case</p>'
 // return;
 // }
 // else{
-// submit_message.innerHTML+='<p class="ok_message" >Message a été envoyé</p>'
+// submit_message.innerHTML='<p class="ok_message" >Message a été envoyé</p>'
 // }
 // })
 
+form.addEventListener("submit", function(e) {
+  e.preventDefault(); 
+
+  if (!isChecked.checked) {
+      submit_message.innerHTML = '<p class="error_message">Svp cochez la case </p>';
+      label.style.color = "red"; 
+      return; 
+  }
+  else{
+    submit_message.innerHTML='<p class="ok_message" >Message a été envoyé</p>'
+  
+     }
+  label.style.color = ""; 
+  form.submit(); 
+});

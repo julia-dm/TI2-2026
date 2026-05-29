@@ -62,16 +62,16 @@
      <div id="msg">Au moins 10 caractères</div>
 </div>
 
-<p style="color:black;"><span id="messLen">0</span>/300</p>
- <!-- <div class="box_char">
+<!-- <p style="color:black;"><span id="messLen">0</span>/300</p> -->
+ <div class="box_char">
    
     <div>
     <input type="checkbox" id="ch_box">
-    <label for="ch_box">J'accepte le storage de mes dobbées personnelles</label>
+    <label for="ch_box" id="ch_label">J'accepte le storage de mes dobbées personnelles</label>
  
     </div>
      <p style="color:black;"><span id="messLen">0</span>/300</p>
-</div>  -->
+</div> 
 
     <button type="submit" class="submit-btn ">Envoyer le message</button>
  </form>
