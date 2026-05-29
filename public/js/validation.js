@@ -160,6 +160,13 @@ const phone=document.getElementById("phone")
 const postcode=document.getElementById("postcode")
 const message=document.getElementById("message")
 
+//form
+const form=document.getElementById("form")
+// chechbox  input
+const isChecked=document.getElementById("ch_box"); 
+console.log(isChecked)
+// onSubmit message
+const submit_message=document.getElementById("submit_message")
 
 //message 
 const msg=document.getElementById("msg")
@@ -168,10 +175,10 @@ const msg=document.getElementById("msg")
 const REGEX={
   regexusername:/^.{2,}$/,
   regexlastname:/^.{2,}$/,
-  // regexemail:/^[a-zA-Z]+\.[a-zA-Z]+\@[a-zA-Z0-9]+\.[a-zA-Z{2,}]+$/,
-  regexemail:/^[a-zA-Z]+\.[a-zA-Z]+\@[a-zA-Z]+\.[a-zA-Z{2,}]+$/,
+  regexemail:/^[a-zA-Z]+\.[a-zA-Z]+\@[a-zA-Z0-9]+\.[a-zA-Z{2,}]+$/,
+  // regexemail:/^[a-zA-Z]+\.[a-zA-Z]+\@[a-zA-Z]+\.[a-zA-Z{2,}]+$/,
   regexpostcode:/^\d{4}$/,
-   regexphone:/^(\+32|0032|0)4\d{8}$/,
+  regexphone:/^(\+32|0032|0)4\d{8}$/,
   //  regexphone:/^(\+32|0032|0)4{8}$/,
   regexmessage:/^.{10,}$/,
 }
@@ -211,6 +218,7 @@ email.addEventListener("keyup",function(){
   f_email.classList.toggle("error",!isValid)
 })
 
+
 //validation of phone
 phone.addEventListener("keyup",function(){
   isValid=REGEX.regexphone.test(phone.value)
@@ -233,6 +241,7 @@ message.addEventListener("keyup",function(){
 })
 
 // 0/300 
+messLen.innerHTML=""
 message.addEventListener("keyup",function(){
   const len=this.value.length;
 messLen.innerHTML=len;
@@ -242,3 +251,15 @@ if(len>280){
   messLen.style.color="black";
 }
 })
+
+
+// form.addEventListener("submit",function(e){
+// submit_message.innerHTML="";
+// if(isChecked.checked){
+// submit_message.innerHTML+='<p class="ok_message" >Message a été envoyé</p>'
+// }
+// else{
+// submit_message.innerHTML+='<p class="error_message">Svp cochez la case</p>'
+// }
+// })
+
