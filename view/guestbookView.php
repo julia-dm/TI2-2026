@@ -14,11 +14,12 @@
 </head>
 <body>
     <nav class="nav">
-        <img src="img/logo.png" alt="">
+         <span class="letters_logo">Fm</span>
+        <!-- <img src="img/logo.png" alt="" class="logo"> -->
         <div class="header-title"> <h1>Livre d'or</h1> 
        <p> Laisser une trace de votre passage!</p></div>
        
-        <button class="change_theme" id="change_theme">🌙 Dark Mode</button>
+        <button class="change_theme" id="change_theme">🌙 Mode Sombre</button>
     </nav>
 
 <!-- Formulaire d'ajout d'un message -->
@@ -26,8 +27,7 @@
 <div class="wrapper">
     <div class="bla">
     <div class="form-img">
-<!-- <img src="img/img.png" alt="computer"> -->
-
+<img src="img/Image.png" alt="computer" width="300" class="img" >
 </div>
  <form action="" method="POST" class="form" id="form">
        <div id="submit_message"></div>
@@ -65,7 +65,7 @@
 <!-- <p style="color:black;"><span id="messLen">0</span>/300</p> -->
  <div class="box_char">
    
-    <div>
+    <div class="checkbox-text">
     <input type="checkbox" id="ch_box">
     <label for="ch_box" id="ch_label">J'accepte le storage de mes dobbées personnelles</label>
  
@@ -93,7 +93,7 @@ $nbMessages =  $countMessages;
                 $pluriel = $nbMessages > 1 ? "s" : "";
             ?>
 <div class="messages">
-    <h2 style="border-bottom:2px solid black; text-align:center;">Message<?= $pluriel ?> récent<?= $pluriel ?> - Il y a actuellement (<?= $nbMessages ?>) message<?= $pluriel ?> </h2>
+    <h2 class="title_messages">Message<?= $pluriel ?> récent<?= $pluriel ?> - Il y a actuellement (<?= $nbMessages ?>) message<?= $pluriel ?> </h2>
                        <?php endif; ?>
                     <?php if (!empty($nbMessages)): ?>
                        <?php
